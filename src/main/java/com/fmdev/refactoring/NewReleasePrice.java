@@ -8,4 +8,9 @@ public class NewReleasePrice extends Price {
     public FilmType getFilmType() {
         return FilmType.NEW_RELEASE;
     }
+
+    @Override
+    public double getCharge(int daysRented) {
+        return daysRented * 3;
+    }
 }
