@@ -30,10 +30,6 @@ public class Customer {
         String result = "Учет аренды для " + getName() + "\n";
 
         for (Rental each : rentals) {
-            // Задолженность по текущему фильму
-            double thisAmount;
-            thisAmount = each.getCharge();
-
             // Добавить очки для орендатора
             frequentRenterPoints++;
 
@@ -43,8 +39,8 @@ public class Customer {
             }
 
             // Показать результаты для этой аренды
-            result += "\t" + each.getMovie().getTitle() + "\t" + thisAmount + "\n";
-            totalAmount += thisAmount;
+            result += "\t" + each.getMovie().getTitle() + "\t" + each.getCharge() + "\n";
+            totalAmount += each.getCharge();
         }
 
         // Добавить к отчету нижний колонтитул с итоговой информацией
