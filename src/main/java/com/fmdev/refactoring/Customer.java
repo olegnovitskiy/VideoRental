@@ -37,6 +37,22 @@ public class Customer {
         return result;
     }
 
+    public String htmlStatement() {
+        // Результирующая строка с отчетом об общей задолжености клиента
+        String result = "<h1>Учет аренды для <em>" + getName() + "</em></h1><p>\n";
+
+        for (Rental rental : rentals) {
+            // Показать результаты для этой аренды
+            result += "\t" + rental.getMovie().getTitle() + "\t" + rental.getCharge() + "<br />\n";
+        }
+
+        // Добавить к отчету нижний колонтитул с итоговой информацией
+        result += "<p>Сумма задолжености составляет <em>" + getTotalCharge() + "</em><p>\n" +
+                "Вы заработали <em>" + getTotalFrequentRenterPoints() + "</em> очков за активность<p>";
+
+        return result;
+    }
+
     private int getTotalFrequentRenterPoints() {
         // Общая сумма бонусов
         int result = 0;
