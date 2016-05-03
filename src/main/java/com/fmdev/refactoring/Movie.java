@@ -25,11 +25,7 @@ public class Movie {
     }
 
     public int getFrequentRenterPoints(int daysRented) {
-        // Бонус за новинки на два дня
-        if (getFilmType() == FilmType.NEW_RELEASE && daysRented > 1) {
-            return 2;
-        }
-        return 1;
+        return price.getFrequentRenterPoints(daysRented);
     }
 
     public void setFilmType(FilmType filmType) {
