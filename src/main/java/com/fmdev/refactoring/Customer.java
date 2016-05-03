@@ -46,11 +46,7 @@ public class Customer {
     }
 
     private int getFrequentRenterPoints(Rental each) {
-        // Бонус за новинки на два дня
-        if (each.getMovie().getFilmType() == FilmType.NEW_RELEASE && each.getDaysRented() > 1) {
-            return 2;
-        }
-        return 1;
+       return each.getFrequentRenterPoints();
     }
 
 }
