@@ -21,27 +21,7 @@ public class Rental {
     }
 
     public double getCharge() {
-        double result = 0;
-        // В зависимости от типа фильма, начисляем заданную стоимость за аренду
-        switch (getMovie().getFilmType()) {
-            case REGULAR:
-                result = 2;
-                if (getDaysRented() > 2) {
-                    result += (getDaysRented() - 2) * 1.5;
-                }
-                break;
-            case NEW_RELEASE:
-                result += getDaysRented() * 3;
-                break;
-            case CHILDRENS:
-                result = 1.5;
-                if (getDaysRented() > 3) {
-                    result += (getDaysRented() - 3) * 1.5;
-                }
-                break;
-            default:
-        }
-        return result;
+        return movie.getCharge(daysRented);
     }
 
     public int getFrequentRenterPoints() {
