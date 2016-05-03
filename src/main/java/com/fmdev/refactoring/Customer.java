@@ -30,13 +30,8 @@ public class Customer {
         String result = "Учет аренды для " + getName() + "\n";
 
         for (Rental each : rentals) {
-            // Добавить очки для орендатора
-            frequentRenterPoints++;
+            frequentRenterPoints = getFrequentRenterPoints(each);
 
-            // Бонус за новинки на два дня
-            if (each.getMovie().getFilmType() == FilmType.NEW_RELEASE && each.getDaysRented() > 1) {
-                frequentRenterPoints++;
-            }
 
             // Показать результаты для этой аренды
             result += "\t" + each.getMovie().getTitle() + "\t" + each.getCharge() + "\n";
@@ -48,6 +43,18 @@ public class Customer {
                 "Вы заработали " + frequentRenterPoints + " очков за активность";
 
         return result;
+    }
+
+    private int getFrequentRenterPoints(Rental each) {
+        int frequentRenterPoints = 0;
+        // Добавить очки для орендатора
+        frequentRenterPoints++;
+
+        // Бонус за новинки на два дня
+        if (each.getMovie().getFilmType() == FilmType.NEW_RELEASE && each.getDaysRented() > 1) {
+            frequentRenterPoints++;
+        }
+        return frequentRenterPoints;
     }
 
 }
