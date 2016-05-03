@@ -5,7 +5,7 @@ package com.fmdev.refactoring;
  */
 public class Movie {
     private String title;
-    private FilmType filmType;
+    private Price price;
 
     public Movie(String title, FilmType filmType) {
         this.title = title;
@@ -13,7 +13,7 @@ public class Movie {
     }
 
     public FilmType getFilmType() {
-        return filmType;
+        return price.getFilmType();
     }
 
     public String getTitle() {
@@ -54,6 +54,17 @@ public class Movie {
     }
 
     public void setFilmType(FilmType filmType) {
-        this.filmType = filmType;
+        switch (filmType) {
+            case CHILDRENS:
+                price = new ChildrensPrice();
+                break;
+            case NEW_RELEASE:
+                price = new NewReleasePrice();
+                break;
+            case REGULAR:
+                price = new RegularPrice();
+                break;
+        }
     }
+
 }
