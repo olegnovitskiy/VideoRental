@@ -30,7 +30,7 @@ public class Customer {
         String result = "Учет аренды для " + getName() + "\n";
 
         for (Rental each : rentals) {
-            frequentRenterPoints += getFrequentRenterPoints(each);
+            frequentRenterPoints += each.getFrequentRenterPoints();
 
 
             // Показать результаты для этой аренды
@@ -43,10 +43,6 @@ public class Customer {
                 "Вы заработали " + frequentRenterPoints + " очков за активность";
 
         return result;
-    }
-
-    private int getFrequentRenterPoints(Rental each) {
-       return each.getFrequentRenterPoints();
     }
 
 }
