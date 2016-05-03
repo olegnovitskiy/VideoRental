@@ -25,10 +25,6 @@ public class Rental {
     }
 
     public int getFrequentRenterPoints() {
-        // Бонус за новинки на два дня
-        if (getMovie().getFilmType() == FilmType.NEW_RELEASE && getDaysRented() > 1) {
-            return 2;
-        }
-        return 1;
+        return movie.getFrequentRenterPoints(daysRented);
     }
 }
