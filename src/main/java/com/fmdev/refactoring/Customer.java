@@ -22,8 +22,9 @@ public class Customer {
     }
 
     public String statement() {
-        // Сумма задолженности
-        double totalAmount = 0;
+        // Сумма задолженности. Эта переменная больше не нужна
+        //double totalAmount = 0;
+
         // Бонусные очки арендатора, начисляются когда он впаривает фильм клиенту
         int frequentRenterPoints = 0;
         // Результирующая строка с отчетом об общей задолжености клиента
@@ -32,16 +33,25 @@ public class Customer {
         for (Rental each : rentals) {
             frequentRenterPoints += each.getFrequentRenterPoints();
 
-
             // Показать результаты для этой аренды
             result += "\t" + each.getMovie().getTitle() + "\t" + each.getCharge() + "\n";
-            totalAmount += each.getCharge();
+            // Этот вызов также больше не нужен
+            //totalAmount += each.getCharge();
         }
 
         // Добавить к отчету нижний колонтитул с итоговой информацией
-        result += "Сумма задолжености составляет " + totalAmount + "\n" +
+        result += "Сумма задолжености составляет " + getTotalCharge() + "\n" +
                 "Вы заработали " + frequentRenterPoints + " очков за активность";
 
+        return result;
+    }
+
+    private Object getTotalCharge() {
+        double result = 0;
+
+        for (Rental rental: rentals) {
+            result += rental.getCharge();
+        }
         return result;
     }
 
