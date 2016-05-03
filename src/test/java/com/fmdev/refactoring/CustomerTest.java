@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class CustomerTest {
 
     @Test
-    public void testWithoutRentalStatement() throws Exception {
+    public void WithoutRentalStatement() throws Exception {
         Customer billy = new Customer("Billy");
 
         // Ожидаемый вид отчета
@@ -20,7 +20,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void testChildrenOneDayOneRentalStatement() throws Exception {
+    public void ChildrenOneDayOneRentalStatement() throws Exception {
         final Movie terminator = new Movie("Terminator", FilmType.CHILDRENS);
         Customer billy = new Customer("Billy");
         billy.addRental(new Rental(terminator, 1));
@@ -30,7 +30,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void testChildrenManyDaysOneRentalStatement() throws Exception {
+    public void ChildrenManyDaysOneRentalStatement() throws Exception {
         final Movie terminator = new Movie("Terminator", FilmType.CHILDRENS);
         Customer billy = new Customer("Billy");
         billy.addRental(new Rental(terminator, 8));
@@ -40,7 +40,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void testRegularOneDayOneRentalStatement() throws Exception {
+    public void RegularOneDayOneRentalStatement() throws Exception {
         final Movie terminator2 = new Movie("Terminator 2", FilmType.REGULAR);
         Customer billy = new Customer("Billy");
         billy.addRental(new Rental(terminator2, 1));
@@ -50,7 +50,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void testRegularManyDaysOneRentalStatement() throws  Exception {
+    public void RegularManyDaysOneRentalStatement() throws  Exception {
         final Movie terminator2 = new Movie("Terminator 2", FilmType.REGULAR);
         Customer billy = new Customer("Billy");
         billy.addRental(new Rental(terminator2, 5));
@@ -60,7 +60,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void testReleaseOneDayOneRentalStatement() throws Exception {
+    public void ReleaseOneDayOneRentalStatement() throws Exception {
         final Movie bummer = new Movie("Бумер", FilmType.NEW_RELEASE);
         Customer billy = new Customer("Billy");
         billy.addRental(new Rental(bummer, 1));
@@ -70,7 +70,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void testReleaseManyDaysOneRentalStatement() throws Exception {
+    public void ReleaseManyDaysOneRentalStatement() throws Exception {
         final Movie bummer = new Movie("Бумер", FilmType.NEW_RELEASE);
         Customer billy = new Customer("Billy");
         billy.addRental(new Rental(bummer, 5));
@@ -80,7 +80,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void testChildrenOneDayTwoRentalsStatement() throws Exception {
+    public void ChildrenOneDayTwoRentalsStatement() throws Exception {
         final Movie terminator = new Movie("Terminator", FilmType.CHILDRENS);
         final Movie terminator2 = new Movie("Terminator 2", FilmType.CHILDRENS);
         Customer julia = new Customer("Julia");
