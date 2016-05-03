@@ -16,10 +16,6 @@ public class Movie {
         return filmType;
     }
 
-    public void setFilmType(FilmType filmType) {
-        this.filmType = filmType;
-    }
-
     public String getTitle() {
         return title;
     }

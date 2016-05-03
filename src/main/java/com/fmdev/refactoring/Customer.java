@@ -23,7 +23,7 @@ public class Customer {
 
     public String statement() {
         // Сумма задолженности
-        double totalAmount = 0.0;
+        double totalAmount = 0;
         // Бонусные очки арендатора, начисляются когда он впаривает фильм клиенту
         int frequentRenterPoints = 0;
         // Результирующая строка с отчетом об общей задолжености клиента
