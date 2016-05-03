@@ -55,26 +55,6 @@ public class Customer {
     }
 
     private double getThisAmount(Rental aRental) {
-        double result = 0;
-        // В зависимости от типа фильма, начисляем заданную стоимость за аренду
-        switch (aRental.getMovie().getFilmType()) {
-            case REGULAR:
-                result = 2;
-                if (aRental.getDaysRented() > 2) {
-                    result += (aRental.getDaysRented() - 2) * 1.5;
-                }
-                break;
-            case NEW_RELEASE:
-                result += aRental.getDaysRented() * 3;
-                break;
-            case CHILDRENS:
-                result = 1.5;
-                if (aRental.getDaysRented() > 3) {
-                    result += (aRental.getDaysRented() - 3) * 1.5;
-                }
-                break;
-            default:
-        }
-        return result;
+        return aRental.getCharge();
     }
 }
