@@ -31,27 +31,9 @@ public class Customer {
 
         for (Rental each : rentals) {
             // Задолженность по текущему фильму
-            double thisAmount = 0;
+            double thisAmount;
+            thisAmount = getThisAmount(each);
 
-            // В зависимости от типа фильма, начисляем заданную стоимость за аренду
-            switch (each.getMovie().getFilmType()) {
-                case REGULAR:
-                    thisAmount = 2;
-                    if (each.getDaysRented() > 2) {
-                        thisAmount += (each.getDaysRented() - 2) * 1.5;
-                    }
-                    break;
-                case NEW_RELEASE:
-                    thisAmount += each.getDaysRented() * 3;
-                    break;
-                case CHILDRENS:
-                    thisAmount = 1.5;
-                    if (each.getDaysRented() > 3) {
-                        thisAmount += (each.getDaysRented() - 3) * 1.5;
-                    }
-                    break;
-                default:
-            }
             // Добавить очки для орендатора
             frequentRenterPoints++;
 
@@ -70,5 +52,29 @@ public class Customer {
                 "Вы заработали " + frequentRenterPoints + " очков за активность";
 
         return result;
+    }
+
+    private double getThisAmount(Rental each) {
+        double thisAmount = 0;
+        // В зависимости от типа фильма, начисляем заданную стоимость за аренду
+        switch (each.getMovie().getFilmType()) {
+            case REGULAR:
+                thisAmount = 2;
+                if (each.getDaysRented() > 2) {
+                    thisAmount += (each.getDaysRented() - 2) * 1.5;
+                }
+                break;
+            case NEW_RELEASE:
+                thisAmount += each.getDaysRented() * 3;
+                break;
+            case CHILDRENS:
+                thisAmount = 1.5;
+                if (each.getDaysRented() > 3) {
+                    thisAmount += (each.getDaysRented() - 3) * 1.5;
+                }
+                break;
+            default:
+        }
+        return thisAmount;
     }
 }
