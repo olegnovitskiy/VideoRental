@@ -9,7 +9,7 @@ public class Movie {
 
     public Movie(String title, FilmType filmType) {
         this.title = title;
-        this.filmType = filmType;
+        setFilmType(filmType);
     }
 
     public FilmType getFilmType() {
@@ -51,5 +51,9 @@ public class Movie {
             return 2;
         }
         return 1;
+    }
+
+    public void setFilmType(FilmType filmType) {
+        this.filmType = filmType;
     }
 }
