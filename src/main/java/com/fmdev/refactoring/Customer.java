@@ -32,7 +32,7 @@ public class Customer {
         for (Rental each : rentals) {
             // Задолженность по текущему фильму
             double thisAmount;
-            thisAmount = getThisAmount(each);
+            thisAmount = each.getCharge();
 
             // Добавить очки для орендатора
             frequentRenterPoints++;
@@ -54,7 +54,4 @@ public class Customer {
         return result;
     }
 
-    private double getThisAmount(Rental aRental) {
-        return aRental.getCharge();
-    }
 }
